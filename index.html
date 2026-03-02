@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula Gratuita - Atuação Previdenciária</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Brand Colors based on the reference */
+      --brand-yellow: #F2C94C; /* Bright yellow */
+      --brand-yellow-dark: #D4AF37;
+      --brand-black: #111111;
+      --brand-gray-dark: #333333;
+      --brand-gray-light: #F5F5F5;
+      --brand-white: #FFFFFF;
+      
+      /* Typography */
+      --font-display: 'Montserrat', sans-serif;
+      --font-body: 'Source Sans Pro', sans-serif;
+      
+      /* Spacing System */
+      --space-xs: 8px;
+      --space-sm: 16px;
+      --space-md: 32px;
+      --space-lg: 64px;
+      --space-xl: 120px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--brand-white);
+      color: var(--brand-gray-dark);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      color: var(--brand-black);
+      line-height: 1.2;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      font-size: 1.125rem;
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+    }
+
+    section {
+      padding: var(--space-xl) 0;
+      position: relative;
+    }
+
+    /* Graphic Elements */
+    .divider-line {
+      height: 2px;
+      background-color: var(--brand-black);
+      width: 60px;
+      margin: var(--space-md) 0;
+    }
+
+    .divider-line.center {
+      margin: var(--space-md) auto;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 40px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      border-radius: 0; /* Square corners like the reference */
+    }
+
+    .btn-primary {
+      background-color: var(--brand-yellow);
+      color: var(--brand-black);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--brand-black);
+      color: var(--brand-yellow);
+    }
+
+    .btn-dark {
+      background-color: var(--brand-black);
+      color: var(--brand-white);
+    }
+
+    .btn-dark:hover {
+      background-color: var(--brand-yellow);
+      color: var(--brand-black);
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-block;
+      padding: 8px 16px;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-md);
+      background-color: var(--brand-black);
+      color: var(--brand-yellow);
+    }
+
+    /* Animations */
+    @keyframes appear {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-appear { animation: appear 0.6s cubic-bezier(0.2, 0.85, 0.45, 1) forwards; }
+    .opacity-0 { opacity: 0; }
+    .delay-100 { animation-delay: 100ms; }
+    .delay-300 { animation-delay: 300ms; }
+    .delay-500 { animation-delay: 500ms; }
+    .delay-700 { animation-delay: 700ms; }
+
+    /* Hero Section */
+    .hero {
+      background-color: var(--brand-white);
+      border-bottom: 20px solid var(--brand-yellow);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: var(--space-xl);
+      padding-bottom: var(--space-xl);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      line-height: 1.2;
+      font-weight: 800;
+      text-align: center;
+      color: var(--brand-black);
+      max-width: 1000px;
+      margin: 0 auto var(--space-sm);
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      text-align: center;
+      font-weight: 400;
+      color: var(--brand-gray-dark);
+      max-width: 800px;
+      margin: 0 auto var(--space-md);
+    }
+
+    /* Form Section */
+    .form-section {
+      background-color: var(--brand-gray-light);
+      border-top: 1px solid #E0E0E0;
+      border-bottom: 1px solid #E0E0E0;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+      align-items: center;
+    }
+
+    .form-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: var(--space-sm);
+    }
+
+    .form-card {
+      background: var(--brand-white);
+      padding: var(--space-lg);
+      border-top: 8px solid var(--brand-yellow);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .form-group {
+      margin-bottom: var(--space-md);
+    }
+
+    .form-label {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--space-xs);
+      color: var(--brand-black);
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 16px;
+      border: 1px solid #CCCCCC;
+      background: var(--brand-white);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--brand-black);
+    }
+
+    .form-card .btn {
+      width: 100%;
+      margin-top: var(--space-sm);
+    }
+
+    /* Method Section */
+    .method-section {
+      text-align: center;
+      background-color: var(--brand-white);
+    }
+
+    .method-header {
+      max-width: 800px;
+      margin: 0 auto var(--space-lg);
+    }
+
+    .method-header h2 {
+      font-size: 2.5rem;
+    }
+
+    .method-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-md);
+      position: relative;
+      margin-bottom: var(--space-lg);
+    }
+
+    .method-steps::before {
+      content: '';
+      position: absolute;
+      top: 30px;
+      left: 12%;
+      right: 12%;
+      height: 2px;
+      background-color: #E0E0E0;
+      z-index: 1;
+    }
+
+    .step {
+      position: relative;
+      z-index: 2;
+      background-color: var(--brand-white);
+      padding: 0 var(--space-sm);
+    }
+
+    .step-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--brand-yellow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--space-md);
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--brand-black);
+    }
+
+    .step h3 {
+      font-size: 1.125rem;
+      margin-bottom: var(--space-xs);
+    }
+
+    .step p {
+      font-size: 1rem;
+      color: var(--brand-gray-dark);
+    }
+
+    /* Plans / Diferenciação Section */
+    .diff-section {
+      background-color: var(--brand-black);
+      color: var(--brand-white);
+    }
+
+    .diff-section h2, .diff-section h4 {
+      color: var(--brand-white);
+    }
+
+    .diff-section .divider-line {
+      background-color: var(--brand-yellow);
+    }
+
+    .diff-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+      align-items: center;
+    }
+
+    .diff-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: var(--space-sm);
+    }
+
+    .diff-content p {
+      color: #CCCCCC;
+      margin-bottom: var(--space-md);
+    }
+
+    .diff-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .diff-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+      padding-bottom: var(--space-md);
+      border-bottom: 1px solid #333333;
+    }
+
+    .diff-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .diff-item-icon {
+      width: 48px;
+      height: 48px;
+      background: transparent;
+      border: 2px solid var(--brand-yellow);
+      color: var(--brand-yellow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+
+    .diff-item h4 {
+      font-size: 1.25rem;
+      margin-bottom: var(--space-xs);
+    }
+
+    .diff-item p {
+      font-size: 1rem;
+      color: #CCCCCC;
+    }
+
+    /* Expert Section */
+    .expert-section {
+      background-color: var(--brand-white);
+      border-bottom: 1px solid #E0E0E0;
+    }
+
+    .expert-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: var(--space-xl);
+      align-items: center;
+    }
+
+    .expert-image {
+      position: relative;
+    }
+
+    .expert-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid #E0E0E0;
+      box-shadow: -20px 20px 0 var(--brand-yellow);
+    }
+
+    .expert-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: var(--space-sm);
+    }
+
+    .expert-content p {
+      color: var(--brand-gray-dark);
+      margin-bottom: var(--space-sm);
+    }
+
+    /* Target Section */
+    .target-section {
+      background-color: var(--brand-gray-light);
+      text-align: center;
+    }
+
+    .target-header {
+      margin-bottom: var(--space-lg);
+    }
+
+    .target-header h2 {
+      font-size: 2.5rem;
+    }
+
+    .target-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-md);
+      text-align: left;
+    }
+
+    .target-box {
+      background: var(--brand-white);
+      padding: var(--space-lg);
+      border: 1px solid #E0E0E0;
+    }
+
+    .target-box.black {
+      background-color: var(--brand-black);
+      color: var(--brand-white);
+    }
+
+    .target-box.black h3 {
+      color: var(--brand-yellow);
+    }
+
+    .target-box.black p {
+      color: #CCCCCC;
+    }
+
+    .target-box h3 {
+      font-size: 1.5rem;
+      margin-bottom: var(--space-md);
+    }
+
+    .target-list {
+      list-style: none;
+    }
+
+    .target-list li {
+      margin-bottom: var(--space-sm);
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-sm);
+      font-size: 1.125rem;
+    }
+
+    .target-list.dark li::before {
+      content: '■';
+      color: var(--brand-black);
+      font-size: 0.8em;
+      margin-top: 4px;
+    }
+
+    .target-list.yellow li::before {
+      content: '■';
+      color: var(--brand-yellow);
+      font-size: 0.8em;
+      margin-top: 4px;
+    }
+
+    .error-msg {
+      color: #EB5757;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-top: 8px;
+      display: none;
+    }
+
+    .invalid {
+      border-color: #EB5757 !important;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: var(--brand-black);
+      color: #888888;
+      text-align: center;
+      padding: var(--space-md) 0;
+      font-size: 0.875rem;
+    }
+    .footer p {
+      font-size: 0.875rem;
+    }
+
+    @media (max-width: 992px) {
+      .form-grid, .diff-card, .expert-grid, .target-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-title { font-size: 2.5rem; }
+      .hero-subtitle { font-size: 1.125rem; }
+      .method-steps { grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
+      .method-steps::before { display: none; }
+      .diff-card { gap: var(--space-lg); }
+      .expert-grid { gap: var(--space-lg); }
+      .expert-image img { box-shadow: -10px 10px 0 var(--brand-yellow); }
+    }
+
+    @media (max-width: 768px) {
+      .method-steps { grid-template-columns: 1fr; }
+      section { padding: var(--space-lg) 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="container" style="display: flex; flex-direction: column; align-items: center;">
+      <span class="badge animate-appear opacity-0">Aula Gratuita • 09/03 às 19h</span>
+      
+      <h1 class="hero-title animate-appear opacity-0 delay-100">
+        Construa uma atuação previdenciária estruturada e feche seus primeiros contratos em até 30 dias
+      </h1>
+      
+      <div class="divider-line center animate-appear opacity-0 delay-300"></div>
+      
+      <p class="hero-subtitle animate-appear opacity-0 delay-300">
+        Aplicando o mesmo método estratégico que me permite conquistar até 5 clientes por semana com estratégias simples, práticas e replicáveis.
+      </p>
+      
+      <a href="#formulario" class="btn btn-primary animate-appear opacity-0 delay-500">
+        Entrar no Grupo Exclusivo (Aula 09/03)
+      </a>
+    </div>
+  </section>
+
+  <!-- FORM SECTION -->
+  <section class="form-section" id="formulario">
+    <div class="container form-grid">
+      <div class="form-content">
+        <span class="badge">Exclusivo para Advogados</span>
+        <h2>Essa pode ser a última oportunidade de ter uma estratégia de vendas validada para o seu escritório.</h2>
+        <div class="divider-line"></div>
+        <p>Em uma única aula, você vai descobrir como estruturar um caso previdenciário do zero e ter segurança para cobrar o valor justo pelos seus honorários.</p>
+        <p>Preencha o formulário ao lado e garanta sua vaga agora!</p>
+      </div>
+      <div class="form-card">
+        <form id="captureForm" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="nome">Qual seu nome?</label>
+            <input type="text" id="nome" class="form-input" required>
+            <div class="error-msg" id="error-nome">Digite um nome válido.</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Seu e-mail</label>
+            <input type="email" id="email" class="form-input" required>
+            <div class="error-msg" id="error-email">Digite um e-mail válido.</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="whatsapp">Seu Telefone</label>
+            <input type="tel" id="whatsapp" class="form-input" required>
+            <div class="error-msg" id="error-whatsapp">Digite um telefone válido.</div>
+          </div>
+          <button type="submit" class="btn btn-dark">Garantir Vaga e Entrar no Grupo</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHOD / SINTOMAS SECTION -->
+  <section class="method-section">
+    <div class="container">
+      <div class="method-header">
+        <h2>Você sabe que poderia faturar muito mais, mas a insegurança te trava?</h2>
+        <div class="divider-line center"></div>
+        <p>Muitos advogados deixam dinheiro na mesa todos os dias porque não dominam a prática previdenciária.</p>
+      </div>
+
+      <div class="method-steps">
+        <div class="step">
+          <div class="step-icon">1</div>
+          <h3>Financeiro Imprevisível</h3>
+          <p>Dependência de indicações, baixa conversão por insegurança e honorários mal precificados.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">2</div>
+          <h3>Medo Técnico</h3>
+          <p>Não saber estruturar um caso completo e ter pavor de errar cálculos gerando prejuízo.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">3</div>
+          <h3>Desgaste Psicológico</h3>
+          <p>Sensação de estar sempre despreparado e evitar oferecer previdenciário por medo.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">4</div>
+          <h3>Falta de Estratégia</h3>
+          <p>Dependência de modelos prontos da internet e não saber explicar a estratégia ao cliente.</p>
+        </div>
+      </div>
+
+      <a href="#formulario" class="btn btn-primary">Entrar no Grupo Exclusivo (Aula 09/03)</a>
+    </div>
+  </section>
+
+  <!-- PLANS / DIFERENCIAÇÃO SECTION -->
+  <section class="diff-section">
+    <div class="container">
+      <div class="diff-card">
+        <div class="diff-content">
+          <h2>Chega de teoria inútil que não enche o seu bolso.</h2>
+          <div class="divider-line"></div>
+          <p>Diferente de faculdades prolixas e cursos teóricos intermináveis, nesta aula você vai aprender a prática real que traz contratos assinados para o seu escritório.</p>
+          <a href="#formulario" class="btn btn-primary" style="margin-top: var(--space-sm);">Garantir Vaga e Entrar no Grupo</a>
+        </div>
+        <div class="diff-list">
+          <div class="diff-item">
+            <div class="diff-item-icon">A</div>
+            <div>
+              <h4>Método Estruturado</h4>
+              <p>Nada de conteúdo solto. Você vai aprender um passo a passo claro de análise para nunca mais travar diante de um cliente.</p>
+            </div>
+          </div>
+          <div class="diff-item">
+            <div class="diff-item-icon">B</div>
+            <div>
+              <h4>Foco em Caso Real</h4>
+              <p>Aprenda com a prática do dia a dia da advocacia, analisando situações reais, e não com doutrinas.</p>
+            </div>
+          </div>
+          <div class="diff-item">
+            <div class="diff-item-icon">C</div>
+            <div>
+              <h4>Segurança Técnica</h4>
+              <p>Domine a leitura do CNIS, entenda a lógica dos cálculos e a produção de provas para fechar contratos.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERT SECTION -->
+  <section class="expert-section">
+    <div class="container expert-grid">
+      <div class="expert-image">
+        <img src="https://i.imgur.com/pJgXhPM.jpeg" alt="Luana Dias">
+      </div>
+      <div class="expert-content">
+        <span class="badge">Sua Mentora</span>
+        <h2>Sobre Luana Dias</h2>
+        <div class="divider-line"></div>
+        <p><strong>Advogada Previdenciarista e Mentora</strong></p>
+        <p>Com uma atuação focada na prática real e na geração de resultados, Luana Dias construiu um escritório altamente lucrativo aplicando um método estratégico de análise e conversão.</p>
+        <p>Cansada da teoria prolixa que não paga as contas, ela desenvolveu processos simples e replicáveis que a permitem fechar até 5 contratos por semana com total segurança técnica.</p>
+        <p>Agora, seu objetivo é guiar outros advogados – iniciantes ou generalistas – a perderem o medo do CNIS e dos cálculos, estruturando uma atuação previdenciária rentável e previsível em tempo recorde.</p>
+        <a href="#formulario" class="btn btn-dark" style="margin-top: var(--space-sm);">Entrar no Grupo Exclusivo (Aula 09/03)</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TARGET SECTION -->
+  <section class="target-section">
+    <div class="container">
+      <div class="target-header">
+        <h2>Para quem é essa aula?</h2>
+        <div class="divider-line center"></div>
+        <p>Descubra se este é o momento certo para você dar o próximo passo.</p>
+      </div>
+
+      <div class="target-grid">
+        <div class="target-box">
+          <h3>Para quem NÃO É:</h3>
+          <ul class="target-list dark">
+            <li>Advogados que buscam "atalhos mágicos" sem sentar para estudar a estratégia.</li>
+            <li>Quem prefere debater teoria acadêmica ao invés de aplicar a prática de mercado.</li>
+            <li>Profissionais que estão acomodados com o faturamento atual e não querem crescer.</li>
+          </ul>
+        </div>
+        <div class="target-box black">
+          <h3>Para quem É:</h3>
+          <ul class="target-list yellow">
+            <li>Advogados iniciantes buscando sua primeira grande área altamente lucrativa.</li>
+            <li>Generalistas cansados de aceitar qualquer causa por honorários baixos.</li>
+            <li>Profissionais inseguros com cálculos e análises complexas de CNIS.</li>
+            <li>Advogados que querem previsibilidade financeira, atraindo até 5 clientes por semana.</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div style="margin-top: var(--space-lg);">
+        <a href="#formulario" class="btn btn-dark">Garantir Vaga e Entrar no Grupo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Luana Dias. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // MÁSCARA DE WHATSAPP
+    const phoneInput = document.getElementById('whatsapp');
+    phoneInput.addEventListener('input', function (e) {
+      let x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+      e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+    });
+
+    // VALIDAÇÃO E SUBMIT
+    const form = document.getElementById('captureForm');
+    
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      let isValid = true;
+      
+      const nome = document.getElementById('nome');
+      if(nome.value.trim().length < 2) {
+        nome.classList.add('invalid');
+        document.getElementById('error-nome').style.display = 'block';
+        isValid = false;
+      } else {
+        nome.classList.remove('invalid');
+        document.getElementById('error-nome').style.display = 'none';
+      }
+      
+      const email = document.getElementById('email');
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if(!emailRegex.test(email.value)) {
+        email.classList.add('invalid');
+        document.getElementById('error-email').style.display = 'block';
+        isValid = false;
+      } else {
+        email.classList.remove('invalid');
+        document.getElementById('error-email').style.display = 'none';
+      }
+      
+      const whatsapp = document.getElementById('whatsapp');
+      const phoneDigits = whatsapp.value.replace(/\D/g, '');
+      if(phoneDigits.length < 10 || phoneDigits.length > 11) {
+        whatsapp.classList.add('invalid');
+        document.getElementById('error-whatsapp').style.display = 'block';
+        isValid = false;
+      } else {
+        whatsapp.classList.remove('invalid');
+        document.getElementById('error-whatsapp').style.display = 'none';
+      }
+      
+      if(isValid) {
+        const userData = {
+          nome: nome.value.trim(),
+          email: email.value.trim(),
+          whatsapp: whatsapp.value.trim(),
+          timestamp: new Date().toISOString()
+        };
+        localStorage.setItem('leadData', JSON.stringify(userData));
+        window.location.href = 'parabens.html';
+      }
+    });
+  </script>
+</body>
+</html>

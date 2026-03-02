@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscrição Confirmada</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Brand Colors based on the reference */
+      --brand-yellow: #F2C94C; /* Bright yellow */
+      --brand-yellow-dark: #D4AF37;
+      --brand-black: #111111;
+      --brand-gray-dark: #333333;
+      --brand-gray-light: #F5F5F5;
+      --brand-white: #FFFFFF;
+      
+      /* Typography */
+      --font-display: 'Montserrat', sans-serif;
+      --font-body: 'Source Sans Pro', sans-serif;
+      
+      /* Spacing System */
+      --space-xs: 8px;
+      --space-sm: 16px;
+      --space-md: 32px;
+      --space-lg: 64px;
+      --space-xl: 120px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--brand-gray-light);
+      color: var(--brand-gray-dark);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: var(--space-md);
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font-display);
+      color: var(--brand-black);
+      line-height: 1.2;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+
+    .success-card {
+      background: var(--brand-white);
+      padding: var(--space-lg);
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+      border-top: 8px solid var(--brand-yellow);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      position: relative;
+    }
+
+    .icon-wrapper {
+      width: 80px;
+      height: 80px;
+      background: var(--brand-yellow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--space-md);
+    }
+
+    .icon-wrapper svg {
+      width: 40px;
+      height: 40px;
+      color: var(--brand-black);
+    }
+
+    .title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: var(--space-sm);
+    }
+
+    .subtitle {
+      font-size: 1.125rem;
+      color: var(--brand-gray-dark);
+      margin-bottom: var(--space-lg);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 20px 40px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      background-color: var(--brand-black);
+      color: var(--brand-white);
+    }
+
+    .btn:hover {
+      background-color: var(--brand-yellow);
+      color: var(--brand-black);
+    }
+
+    .microcopy {
+      font-size: 0.875rem;
+      color: #888;
+      margin-top: var(--space-md);
+    }
+
+    .link-box {
+      background: var(--brand-gray-light);
+      padding: 12px;
+      font-family: monospace;
+      font-size: 0.875rem;
+      color: var(--brand-gray-dark);
+      margin-top: 12px;
+      word-break: break-all;
+      border: 1px solid #E0E0E0;
+    }
+
+    @media (max-width: 480px) {
+      .success-card {
+        padding: var(--space-md);
+      }
+      .title {
+        font-size: 2rem;
+      }
+      .btn {
+        padding: 16px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="success-card">
+    <div class="icon-wrapper">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+    
+    <h1 class="title" id="greeting">Inscrição confirmada.</h1>
+    <p class="subtitle">Agora falta 1 passo: entrar no grupo para receber o link.</p>
+    
+    <a href="#" id="groupLink" class="btn">Entrar no grupo agora</a>
+    
+    <p class="microcopy">Se não abrir, copie e cole o link no navegador:</p>
+    <div class="link-box" id="linkBox"></div>
+  </div>
+
+  <script>
+    const GROUP_URL = "https://seulink_aqui";
+    document.getElementById('groupLink').href = GROUP_URL;
+    document.getElementById('linkBox').innerText = GROUP_URL;
+
+    try {
+      const leadData = localStorage.getItem('leadData');
+      if (leadData) {
+        const data = JSON.parse(leadData);
+        if (data.nome) {
+          const firstName = data.nome.split(' ')[0];
+          document.getElementById('greeting').innerText = `Pronto, ${firstName}.`;
+        }
+      }
+    } catch (e) {
+      console.error('Erro ao ler localStorage', e);
+    }
+  </script>
+</body>
+</html>
