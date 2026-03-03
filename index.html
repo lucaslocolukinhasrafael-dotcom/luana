@@ -618,7 +618,7 @@
     <div class="container">
       <div class="diff-card">
         <div class="diff-content">
-          <h2>Chega de teoria inútil que não enche o seu bolso.</h2>
+          <h2>Chega de teorias inúteis que não te ajudam a fechar contratos</h2>
           <div class="divider-line"></div>
           <p>Diferente de faculdades prolixas e cursos teóricos intermináveis, nesta aula você vai aprender a prática real que traz contratos assinados para o seu escritório.</p>
           <a href="#formulario" class="btn btn-primary" style="margin-top: var(--space-sm);">Garantir Vaga e Entrar no Grupo</a>
@@ -760,14 +760,38 @@
       }
       
       if(isValid) {
+        const now = new Date();
         const userData = {
           nome: nome.value.trim(),
           email: email.value.trim(),
           whatsapp: whatsapp.value.trim(),
-          timestamp: new Date().toISOString()
+          data: now.toLocaleDateString('pt-BR'),
+          horario: now.toLocaleTimeString('pt-BR'),
+          timestamp: now.toISOString()
         };
+
+        // SALVAR NO LOCALSTORAGE (BACKUP)
         localStorage.setItem('leadData', JSON.stringify(userData));
-        window.location.href = 'parabens.html';
+
+        // ENVIAR PARA O MAKE (WEBHOOK)
+        // Substitua 'SUA_URL_DO_WEBHOOK_AQUI' pela URL que o Make vai te fornecer
+        const MAKE_WEBHOOK_URL = 'https://hook.us2.make.com/xtnvat4n628emain3q9fvnalphmdgdds';
+
+        fetch(MAKE_WEBHOOK_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(userData),
+        })
+        .then(() => {
+          window.location.href = 'parabens.html';
+        })
+        .catch((error) => {
+          console.error('Erro ao enviar para o Make:', error);
+          // Redireciona mesmo se falhar o webhook para não travar o usuário
+          window.location.href = 'parabens.html';
+        });
       }
     });
   </script>
