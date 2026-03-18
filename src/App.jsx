@@ -109,7 +109,7 @@ function App() {
             <span className="material-symbols-outlined text-primary group-hover:text-on-primary-container text-3xl mb-2">work</span>
             <span className="text-[9px] uppercase tracking-widest font-bold text-primary/60 group-hover:text-on-primary-container/60">LinkedIn</span>
           </a>
-          <a className="aspect-square bg-surface-container rounded-xl editorial-shadow flex flex-col items-center justify-center group hover:bg-primary transition-all duration-500 floating-effect border border-outline-variant" href="mailto:contatoluanadias@gmail.com" target="_blank" rel="noopener noreferrer">
+          <a className="aspect-square bg-surface-container rounded-xl editorial-shadow flex flex-col items-center justify-center group hover:bg-primary transition-all duration-500 floating-effect border border-outline-variant" href="mailto:diasadvocaciabr@gmail.com" target="_blank" rel="noopener noreferrer">
             <span className="material-symbols-outlined text-primary group-hover:text-on-primary-container text-3xl mb-2">mail</span>
             <span className="text-[9px] uppercase tracking-widest font-bold text-primary/60 group-hover:text-on-primary-container/60">E-mail</span>
           </a>
