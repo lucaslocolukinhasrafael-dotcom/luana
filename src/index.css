@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Public+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --color-maroon: #40181A;
+  --color-maroon-light: #522224;
+  --color-beige: #E6DBCF;
+  --color-beige-dark: #D4C9BD;
+  --color-white: #FFFFFF;
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Public Sans', sans-serif;
+  --max-w: 480px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: var(--color-beige-dark);
+  font-family: var(--font-sans);
+  color: var(--color-maroon);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+/* Base generic classes */
+.serif {
+  font-family: var(--font-serif);
+}
+
+.sans {
+  font-family: var(--font-sans);
+}
