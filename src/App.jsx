@@ -6,9 +6,14 @@ function App() {
     <div className="text-on-surface selection:bg-primary selection:text-white">
       {/* Full-width Background Header Section */}
       <header className="relative w-full h-[85vh] overflow-hidden">
+        {/* Background blur for desktop */}
+        <div 
+          className="hidden md:block absolute inset-0 w-full h-full bg-cover bg-center opacity-40 blur-2xl scale-110" 
+          style={{backgroundImage: "url('https://i.imgur.com/znueKhq.jpeg')"}}
+        ></div>
         <img 
           alt="Retrato editorial profissional de Luana Dias" 
-          className="absolute inset-0 w-full h-full object-cover object-top" 
+          className="absolute inset-0 w-full h-full object-cover md:object-contain object-top md:object-center z-0 relative" 
           src="https://i.imgur.com/znueKhq.jpeg"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/20 to-transparent"></div>
@@ -42,7 +47,7 @@ function App() {
               <div>
                 <span className="inline-block px-3 py-1 bg-secondary text-primary text-[10px] uppercase tracking-widest font-bold rounded-full mb-6">Acesso Exclusivo</span>
                 <h3 className="text-3xl md:text-4xl font-headline text-on-primary-container mb-4 leading-tight">Grupo de Aulas Gratuitas: Metodologia de Serviço</h3>
-                <p className="text-on-primary-container/80 font-body leading-relaxed max-w-sm">Junte-se a um grupo de elite focado em dominar as nuances estratégicas da entrega jurídica.</p>
+                <p className="text-on-primary-container/80 font-body leading-relaxed max-w-sm">Junte-se a um grupo de elite focado em dominar as nuances estratégicas da entrega jurídica no Direito Previdenciário.</p>
               </div>
               <div className="flex justify-center md:justify-end">
                 <div className="w-20 h-20 rounded-full border-2 border-secondary flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-primary transition-all duration-500">
@@ -55,7 +60,7 @@ function App() {
         </section>
         {/* Bento Grid: Secondary Links */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          <div className="bg-surface-container-high rounded-xl p-8 editorial-shadow hover:bg-surface-container-highest transition-colors duration-300 flex flex-col justify-between min-h-[300px] cursor-pointer group floating-effect border border-outline-variant">
+          <a href="https://wa.me/556992915832" target="_blank" rel="noopener noreferrer" className="bg-surface-container-high rounded-xl p-8 editorial-shadow hover:bg-surface-container-highest transition-colors duration-300 flex flex-col justify-between min-h-[300px] cursor-pointer group floating-effect border border-outline-variant">
             <div className="flex justify-between items-start">
               <span className="material-symbols-outlined text-primary text-3xl">auto_stories</span>
               <span className="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity">north_east</span>
@@ -68,8 +73,8 @@ function App() {
                 <span className="material-symbols-outlined text-sm ml-2">arrow_forward</span>
               </div>
             </div>
-          </div>
-          <div className="relative rounded-xl overflow-hidden editorial-shadow min-h-[300px] group cursor-pointer floating-effect border border-outline-variant">
+          </a>
+          <a href="https://wa.me/556992915832" target="_blank" rel="noopener noreferrer" className="relative rounded-xl overflow-hidden editorial-shadow min-h-[300px] group cursor-pointer floating-effect border border-outline-variant">
             <img alt="Textura luxuosa de mármore burgundy e detalhes dourados" className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBziwOva7JOWb5PptlO5DSqkYnR0WhWogEviP3orXr1eCXSZ6dzfsmlG2rxz88h8DaKQHuSFo6H75rBtYfv87x6j_4GUF4uMGIS0fV5lRKRrAtVNTCr46ZtSly30uPP5a6oBVgeuCbXFPkXX5hXugqmRkRfB7fvP0zRIdAldZIEaw2JuaICCOBPf3As8YREIcfvgNQkAv6t0V78i9JA7vobQ-HdVRtmUEHklT8muD8Pg6G6eqM07KScgZqgpeUmojcAC154GqvAGVD4"/>
             <div className="absolute inset-0 bg-primary/85 backdrop-blur-[1px]"></div>
             <div className="absolute inset-0 p-8 flex flex-col justify-between">
@@ -86,7 +91,7 @@ function App() {
                 </div>
               </div>
             </div>
-          </div>
+          </a>
         </section>
         {/* Social Moodboard Grid */}
         <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -95,14 +100,26 @@ function App() {
             <p className="text-[10px] uppercase tracking-[0.2em] text-on-surface/40 font-bold">Acompanhe a Prática Profissional</p>
           </div>
           <a className="aspect-square bg-surface-container rounded-xl editorial-shadow flex flex-col items-center justify-center group hover:bg-primary transition-all duration-500 floating-effect border border-outline-variant" href="https://wa.me/556992915832" target="_blank" rel="noopener noreferrer">
-            <span className="material-symbols-outlined text-primary group-hover:text-on-primary-container text-3xl mb-2">chat</span>
+            <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 mb-2 group-hover:text-on-primary-container text-primary transition-colors">
+              <path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.22.576 4.3 1.583 6.096L.48 24l6.027-1.55c1.724.954 3.712 1.503 5.82 1.503 6.646 0 12.032-5.386 12.032-12.032C24.36 5.385 18.976 0 12.031 0zm0 21.954c-1.85 0-3.606-.484-5.148-1.344l-.369-.205-3.82.981.996-3.705-.226-.38c-.933-1.574-1.425-3.41-1.425-5.342 0-5.545 4.512-10.057 10.057-10.057 5.546 0 10.058 4.512 10.058 10.057 0 5.545-4.512 10.057-10.057 10.057zm5.526-7.553c-.303-.152-1.794-.886-2.07-.988-.276-.102-.477-.152-.678.151-.201.303-.779.988-.954 1.19-.176.202-.352.227-.655.075-1.472-.74-2.584-1.373-3.626-2.583-.267-.309-.115-.506.036-.656.136-.135.303-.353.454-.53.151-.176.201-.303.302-.505.101-.202.05-.38-.025-.53-.075-.152-.678-1.636-.928-2.242-.243-.591-.49-.51-.678-.52h-.578c-.201 0-.528.076-.804.379-.276.303-1.055 1.03-1.055 2.511 0 1.48 1.08 2.912 1.231 3.114.151.202 2.126 3.243 5.148 4.546 1.8.775 2.477.893 3.328.75 1-.168 2.18-.887 2.484-1.745.303-.859.303-1.594.212-1.745-.09-.152-.34-.241-.643-.393z"/>
+            </svg>
             <span className="text-[9px] uppercase tracking-widest font-bold text-primary/60 group-hover:text-on-primary-container/60">WhatsApp</span>
           </a>
-          <a className="aspect-square bg-surface-container rounded-xl editorial-shadow flex flex-col items-center justify-center group hover:bg-primary transition-all duration-500 floating-effect border border-outline-variant" href="#">
+          <a className="aspect-square bg-surface-container rounded-xl editorial-shadow flex flex-col items-center justify-center group hover:bg-primary transition-all duration-500 floating-effect border border-outline-variant" href="https://www.linkedin.com/in/luana-dias-02a582106?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer">
             <span className="material-symbols-outlined text-primary group-hover:text-on-primary-container text-3xl mb-2">work</span>
             <span className="text-[9px] uppercase tracking-widest font-bold text-primary/60 group-hover:text-on-primary-container/60">LinkedIn</span>
           </a>
-          <div className="col-span-2 md:col-span-4 relative h-40 rounded-xl overflow-hidden editorial-shadow group border border-outline-variant">
+          <a className="aspect-square bg-surface-container rounded-xl editorial-shadow flex flex-col items-center justify-center group hover:bg-primary transition-all duration-500 floating-effect border border-outline-variant" href="mailto:contatoluanadias@gmail.com" target="_blank" rel="noopener noreferrer">
+            <span className="material-symbols-outlined text-primary group-hover:text-on-primary-container text-3xl mb-2">mail</span>
+            <span className="text-[9px] uppercase tracking-widest font-bold text-primary/60 group-hover:text-on-primary-container/60">E-mail</span>
+          </a>
+          <a className="aspect-square bg-surface-container rounded-xl editorial-shadow flex flex-col items-center justify-center group hover:bg-primary transition-all duration-500 floating-effect border border-outline-variant" href="https://www.tiktok.com/@draluadias" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 mb-2 group-hover:text-on-primary-container text-primary transition-colors">
+              <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 2.26-1.17 4.41-2.95 5.84-1.77 1.42-4.14 2.15-6.4 1.95-3.03-.27-5.69-2.38-6.68-5.26-.5-1.44-.55-3.05-.15-4.52.34-1.28 1.03-2.47 1.94-3.4 2.05-2.07 5.25-2.82 8.01-1.76v4.06c-2.39-.77-5.07-.1-6.46 1.83-.82 1.13-1.01 2.67-.5 3.96.48 1.21 1.63 2.19 2.9 2.53 1.93.51 4.13-.3 5.11-2.01.4-.7.54-1.53.53-2.34-.02-5.78-.01-11.57-.01-17.35l.06-.3z"/>
+            </svg>
+            <span className="text-[9px] uppercase tracking-widest font-bold text-primary/60 group-hover:text-on-primary-container/60">TikTok</span>
+          </a>
+          <div className="col-span-2 md:col-span-2 relative h-40 rounded-xl overflow-hidden editorial-shadow group border border-outline-variant">
             <img alt="Close-up de uma coleção clássica de livros jurídicos" className="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcQAAgEA3msv2gMKFh-drd41RUIkv2wRR4-u8zyqCct3n8lEUNYsoJ9PYabX7jZSGVF5AET3qs43RkdUHkLKetUnHJTSCw3mCrsmXrrmKb0uLBktHMl4UpvfEOs-I9CgX2J7m69s_Oz7Blt6hKYctEj41dkyMkmGj3HsZDJmVk99CDM3zJmIbNDhhR5kKjcycoHnAg_-GDAZH6C4I7KCht9zuU6veyFvEpaJHSISrE5lpNmeesW1BTn2Y06vjIU8d6bdUf2oRSiTzI"/>
             <div className="absolute inset-0 bg-primary/20"></div>
           </div>
