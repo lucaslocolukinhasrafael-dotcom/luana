@@ -68,34 +68,37 @@
         }
     </style>
 </head>
-<body class="relative min-h-screen selection:bg-brand-gold selection:text-purewhite flex flex-col justify-center items-center py-10 px-4">
+<body class="relative min-h-screen selection:bg-brand-gold selection:text-purewhite flex flex-col justify-between items-center bg-[#EBEBDF]">
 
     <!-- Background Pattern -->
     <div class="fixed inset-0 pointer-events-none -z-10 bg-grid mask-image: radial-gradient(circle at center, black 40%, transparent 100%);"></div>
-    <div class="fixed top-20 left-1/2 -translate-x-1/2 w-[300px] h-[300px] bg-brand-gold/10 rounded-full blur-[80px] -z-10"></div>
 
-    <main class="w-full max-w-lg mx-auto relative z-10 w-full animate-[fade-in_1s_ease-out]">
+    <!-- Cinematic Hero Header (Reference Halison style, full width top half) -->
+    <header class="relative w-full h-[65vh] flex items-end justify-start overflow-hidden">
+        <img src="https://i.imgur.com/znueKhq.jpeg" class="absolute inset-0 w-full h-full object-cover object-[center_20%]" alt="Luana Dias">
+        <!-- Fade from photo to light background below -->
+        <div class="absolute inset-0 bg-gradient-to-t from-[#EBEBDF] via-[#EBEBDF]/30 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-[#EBEBDF]/60 via-[#EBEBDF]/10 to-transparent hidden md:block"></div>
         
-        <!-- Profile Header -->
-        <div class="text-center mb-10">
-            <div class="relative w-32 h-32 md:w-36 md:h-36 mx-auto mb-6">
-                <div class="absolute inset-0 bg-brand-gold/30 blur-[20px] rounded-full translate-y-4"></div>
-                <img src="https://i.imgur.com/znueKhq.jpeg" class="w-full h-full object-cover rounded-full border border-white/10 shadow-lg relative z-10" alt="Luana Dias">
-            </div>
-            <h1 class="text-4xl md:text-5xl font-serif text-white tracking-tight leading-[1] mb-2">Luana Dias</h1>
-            <p class="text-[10px] md:text-xs uppercase tracking-[0.25em] font-bold text-brand-gold mb-4">Advocacia Intencional</p>
-            <p class="text-sm font-light text-white/50 max-w-xs mx-auto">Construindo justiça através de uma estratégia previdenciária de alta maestria.</p>
+        <div class="relative z-10 w-full max-w-4xl mx-auto px-6 pb-12 md:pb-16 animate-[fade-in_1s_ease-out]">
+            <span class="text-[10px] md:text-sm font-bold tracking-[0.3em] uppercase text-brand-gold mb-2 block" style="text-shadow: 0 2px 10px rgba(255,255,255,0.8);">Advocacia Intencional</span>
+            <h1 class="text-[5.5rem] md:text-9xl font-serif text-[#233d4d] tracking-tighter leading-[0.8] uppercase" style="text-shadow: 0 4px 30px rgba(235, 235, 223, 0.7);">
+                Luana<br>Dias
+            </h1>
         </div>
+    </header>
 
+    <main class="w-full max-w-md mx-auto relative z-10 px-4 -mt-6">
+        
         <!-- Links Section -->
         <div class="space-y-4 mb-10 w-full">
             
             <!-- Primary High-Conversion Button (Points to /grupo) -->
-            <a href="/grupo" class="block w-full group relative inline-flex items-center justify-center overflow-hidden rounded-[1.5rem] p-[1px] focus:outline-none">
+            <a href="/grupo" class="block w-full group relative inline-flex items-center justify-center overflow-hidden rounded-[1.5rem] p-[1px] focus:outline-none shadow-lg">
                 <span class="absolute inset-[-1000%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#EBEBDF_0%,#E9631A_50%,#EBEBDF_100%)]"></span>
                 <span class="inline-flex flex-col w-full cursor-pointer items-center justify-center gap-1 rounded-[1.5rem] bg-brand-gold p-8 backdrop-blur-3xl transition-all group-hover:bg-[#d05615]">
                     <span class="text-[9px] uppercase tracking-widest font-bold text-purewhite/70">Acesso Exclusivo e Gratuito</span>
-                    <span class="text-xl md:text-2xl font-serif text-purewhite leading-tight font-medium my-1">Imersão Método Prev 5.0</span>
+                    <span class="text-2xl md:text-3xl font-serif text-purewhite leading-tight font-medium my-1">Imersão Método Prev 5.0</span>
                     <div class="flex items-center gap-2 mt-3">
                         <span class="text-xs text-purewhite uppercase tracking-widest font-bold">Pegar meu passaporte</span>
                         <i data-lucide="arrow-right" class="w-4 h-4 text-purewhite group-hover:translate-x-1 transition-transform"></i>
@@ -104,10 +107,10 @@
             </a>
 
             <!-- Secondary Booking Button -->
-            <a href="https://wa.me/556992915832" target="_blank" class="block w-full group glass-panel rounded-[1.5rem] p-7 text-center hover:border-brand-gold/40 transition-colors relative overflow-hidden">
+            <a href="https://wa.me/556992915832" target="_blank" class="block w-full group glass-panel rounded-[1.5rem] p-7 text-center hover:border-brand-gold/40 hover:bg-[#233d4d]/[0.02] transition-all relative overflow-hidden shadow-sm">
                 <div class="absolute inset-0 w-full h-full bg-gradient-to-t from-brand-gold/[0.03] to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <span class="relative z-10 text-[9px] uppercase tracking-widest font-bold text-white/40 block mb-2">Seu caso é complexo?</span>
-                <span class="relative z-10 text-xl md:text-2xl font-serif text-white block mb-4">Gostaríamos de Cuidar do seu Mapeamento Previdenciário</span>
+                <span class="relative z-10 text-[9px] uppercase tracking-widest font-bold text-white/40 block mb-2 transition-colors group-hover:text-white/60">Seu caso é complexo?</span>
+                <span class="relative z-10 text-xl font-serif text-white block mb-4">Gostaríamos de Cuidar do seu Mapeamento Previdenciário</span>
                 <div class="relative z-10 flex items-center justify-center gap-2">
                     <span class="text-xs text-brand-gold uppercase tracking-widest font-bold group-hover:text-brand-goldglow transition-colors">Solicitar Atendimento Jurídico</span>
                     <i data-lucide="scale" class="w-4 h-4 text-brand-gold transition-colors"></i>
@@ -116,28 +119,92 @@
             
         </div>
 
-        <!-- Social Icons -->
-        <div class="flex justify-center items-center gap-4 mb-10">
-            <a href="https://wa.me/556992915832" target="_blank" class="w-12 h-12 glass-panel rounded-full flex items-center justify-center text-white/60 hover:text-brand-gold hover:border-brand-gold/30 hover:scale-110 transition-all shadow-sm">
-                <i data-lucide="phone" class="w-5 h-5"></i>
+        <!-- Social Icons (Line Art Hollow Icons matching reference) -->
+        <div class="flex justify-center items-center gap-5 mb-16">
+            <!-- Phone/WhatsApp -->
+            <a href="https://wa.me/556992915832" target="_blank" class="w-[50px] h-[50px] glass-panel rounded-[1.2rem] flex items-center justify-center text-white/60 hover:text-brand-gold hover:border-brand-gold/30 hover:-translate-y-1 transition-all shadow-sm">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
             </a>
-            <a href="https://www.linkedin.com/in/luana-dias-02a582106" target="_blank" class="w-12 h-12 glass-panel rounded-full flex items-center justify-center text-white/60 hover:text-brand-gold hover:border-brand-gold/30 hover:scale-110 transition-all shadow-sm">
-                <i data-lucide="linkedin" class="w-5 h-5"></i>
+            <!-- Mail -->
+            <a href="mailto:diasadvocaciabr@gmail.com" class="w-[50px] h-[50px] glass-panel rounded-[1.2rem] flex items-center justify-center text-white/60 hover:text-brand-gold hover:border-brand-gold/30 hover:-translate-y-1 transition-all shadow-sm">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
             </a>
-            <a href="mailto:diasadvocaciabr@gmail.com" class="w-12 h-12 glass-panel rounded-full flex items-center justify-center text-white/60 hover:text-brand-gold hover:border-brand-gold/30 hover:scale-110 transition-all shadow-sm">
-                <i data-lucide="mail" class="w-5 h-5"></i>
+            <!-- LinkedIn Hollow Style -->
+            <a href="https://www.linkedin.com/in/luana-dias-02a582106" target="_blank" class="w-[50px] h-[50px] glass-panel rounded-[1.2rem] flex items-center justify-center text-white/60 hover:text-brand-gold hover:border-brand-gold/30 hover:-translate-y-1 transition-all shadow-sm">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
             </a>
-            <a href="https://www.tiktok.com/@draluadias" target="_blank" class="w-12 h-12 glass-panel rounded-full flex items-center justify-center text-white/60 hover:text-brand-gold hover:border-brand-gold/30 hover:scale-110 transition-all shadow-sm">
-                <!-- TikTok icon is not standard in lucide right now, fallback to playing or generic video -->
-                <i data-lucide="video" class="w-5 h-5"></i>
+            <!-- Musical Note for TikTok Hollow -->
+            <a href="https://www.tiktok.com/@draluadias" target="_blank" class="w-[50px] h-[50px] glass-panel rounded-[1.2rem] flex items-center justify-center text-white/60 hover:text-brand-gold hover:border-brand-gold/30 hover:-translate-y-1 transition-all shadow-sm">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path><path d="M14 4c0 2.2.8 4 4 4"></path></svg>
             </a>
         </div>
-
-        <div class="text-center">
-            <span class="text-[9px] font-mono text-white/30 uppercase tracking-[0.2em]">OAB/RO nº 15293</span>
-        </div>
-
     </main>
+
+    <!-- Paste the About section from the other file here -->
+    <div class="w-full">
+         <section id="sobre" class="container mx-auto px-6 max-w-6xl mb-20 pt-16 border-t border-white/5 relative overflow-hidden">
+            <!-- Background element -->
+            <div class="absolute right-0 top-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-brand-gold/5 blur-[100px] -z-10 rounded-full pointer-events-none"></div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+                
+                <!-- Photo Column -->
+                <div class="lg:col-span-5 relative reveal">
+                    <div class="absolute inset-0 bg-brand-gold/10 blur-[40px] rounded-[2rem] transform rotate-3 delay-200 duration-1000"></div>
+                    <div class="relative glass-panel rounded-[2rem] overflow-hidden border border-brand-gold/20 shadow-[0_0_40px_rgba(196,164,112,0.15)] aspect-[4/5] group">
+                        <!-- Imagem da Luana -->
+                        <img src="https://i.imgur.com/w5sltWR.jpeg" alt="Luana Dias" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#020204]/90 via-[#020204]/20 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <h3 class="text-3xl md:text-3xl font-serif text-purewhite mb-2">Luana Dias</h3>
+                            <p class="text-brand-gold text-[10px] tracking-[0.2em] uppercase font-bold">Mentora & Guardiã de Histórias</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Column -->
+                <div class="lg:col-span-7 reveal delay-100">
+                    <span class="text-brand-gold text-[10px] tracking-[0.25em] uppercase font-bold mb-4 block">Com quem você vai aprender</span>
+                    <h2 class="text-3xl md:text-5xl font-serif text-white tracking-tight mb-8 leading-[1.1]">
+                        "Enxergo almas humanas <br class="hidden xl:block"> 
+                        <span class="text-brand-gold italic">onde o sistema só vê números."</span>
+                    </h2>
+                    
+                    <div class="space-y-6 text-white/70 font-light text-lg leading-relaxed mb-10">
+                        <p>
+                            Quando pedi exoneração da assessoria pública para abrir meu próprio escritório em Porto Velho, tomei uma decisão inegociável: <strong class="text-white font-medium">jamais faria parte da cultura da "advocacia de superfície".</strong>
+                        </p>
+                        <p>
+                            Me irrita profundamente ver o mercado atual focado em "petições-modelo", faturamento desenfreado e dancinhas em redes sociais, esquecendo que por trás de cada CNIS <span class="text-white font-medium">existe a biografia de alguém pedindo respeito.</span>
+                        </p>
+                        <p>
+                            A advocacia Previdenciária não é área de formulário. É a proteção da dignidade das pessoas mais vulneráveis. É por isso que não separo técnica de humanidade. E foi exatamente assim que estruturei o <strong class="text-white font-medium">Método Prev 5.0</strong>. Através dele, já formei dezenas de advogadas que antes sentiam a dor da "síndrome da impostora", não sabiam analisar um CNIS com precisão e hoje conduzem seus atendimentos como referências irrefutáveis.
+                        </p>
+                        <p>
+                            Eu não te ensino apenas teoria abstrata. Eu te dou segurança, olho no olho e o mapa exato para você ter sucesso defendendo almas.
+                        </p>
+                    </div>
+
+                    <!-- Authority indicators -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="glass-panel p-5 rounded-2xl border border-white/5 border-l-2 border-l-brand-gold bg-[#233d4d]/[0.02]">
+                            <p class="text-brand-gold font-serif text-3xl mb-1">+40</p>
+                            <p class="text-white/50 text-[10px] sm:text-xs uppercase tracking-wider font-semibold">Advogados Mentorados</p>
+                        </div>
+                        <div class="glass-panel p-5 rounded-2xl border border-white/5 border-l-2 border-l-brand-gold bg-[#233d4d]/[0.02]">
+                            <p class="text-brand-gold font-serif text-3xl mb-1">5.0</p>
+                            <p class="text-white/50 text-[10px] sm:text-xs uppercase tracking-wider font-semibold">Criadora do Método Prev</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="w-full text-center pb-8 border-t border-white/5 pt-8">
+        <span class="text-[10px] font-mono text-white/50 uppercase tracking-[0.2em] block mb-2">OAB/RO nº 15293</span>
+        <span class="text-[10px] font-mono text-white/30 uppercase tracking-[0.2em]">Luana Dias Advocacia © 2026</span>
+    </footer>
 
     <script>
         lucide.createIcons();
