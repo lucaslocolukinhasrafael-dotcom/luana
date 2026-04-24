@@ -79,13 +79,14 @@
     <header class="relative w-full h-[65vh] flex items-end justify-start overflow-hidden">
         <img src="https://i.imgur.com/znueKhq.jpeg" class="absolute inset-0 w-full h-full object-cover object-[center_top]" alt="Luana Dias">
         
-        <!-- Only fade the absolute bottom edge so the image remains sharp and natural -->
-        <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#EBEBDF] via-[#EBEBDF]/80 to-transparent"></div>
+        <!-- Very concise gradient fade only on the bottom edge so the text sits safely on the photo -->
+        <div class="absolute inset-x-0 bottom-[-2px] h-32 md:h-48 bg-gradient-to-t from-[#EBEBDF] via-[#EBEBDF]/90 to-transparent"></div>
         <div class="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-[#EBEBDF]/20 to-transparent hidden md:block"></div>
         
-        <div class="relative z-10 w-full max-w-4xl mx-auto px-6 pb-12 animate-[fade-in_1s_ease-out]">
-            <span class="text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase text-brand-gold mb-1 block">Advocacia Intencional</span>
-            <h1 class="text-6xl md:text-8xl font-serif text-[#233d4d] tracking-normal leading-[0.85] uppercase">
+        <!-- Increased padding-bottom to pb-24/pb-32 to push typography completely above the gradient line -->
+        <div class="relative z-10 w-full max-w-4xl mx-auto px-6 pb-20 md:pb-32 animate-[fade-in_1s_ease-out]">
+            <span class="text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase text-brand-gold mb-1 block">Estrategista Previdenciária</span>
+            <h1 class="text-[5.5rem] md:text-8xl font-serif text-[#233d4d] tracking-normal leading-[0.8] uppercase">
                 Luana<br>Dias
             </h1>
         </div>
