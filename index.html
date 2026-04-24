@@ -1,22 +1,146 @@
 <!DOCTYPE html>
-<html class="light" lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Luana Dias | Editorial Jurídico</title>
-    <meta name="description" content="Luana Dias - Autoridade em Estratégia Jurídica e Consultoria Previdenciária." />
+<html lang="pt-br" class="scroll-smooth overflow-x-hidden">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luana Dias - Estratégia Jurídica</title>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <!-- Preloading lcp image -->
-    <link rel="preload" href="https://i.imgur.com/j9elSmq.jpeg" as="image" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Instrument+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Iconify -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Instrument Serif', 'serif'],
+                    },
+                    colors: {
+                        white: '#233d4d', // Charcoal
+                        purewhite: '#ffffff', // Real white for buttons
+                        brand: {
+                            gold: '#E9631A', // Atomic Orange
+                            goldglow: '#f5803d',
+                            dark: '#EBEBDF', // Oatmilk Background
+                            panel: '#f2f2e6', // Lighter panel
+                            border: 'rgba(35, 61, 77, 0.08)' // Charcoal border
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #EBEBDF; /* Oatmilk */
+            color: #233d4d; /* Charcoal */
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        /* Contrast Overrides for Light Theme */
+        .text-white\/40, .text-white\/50, .text-white\/60 { color: rgba(35, 61, 77, 0.85) !important; }
+        .text-white\/70, .text-white\/80 { color: #233d4d !important; }
 
-  </head>
-  <body class="text-on-surface selection:bg-primary selection:text-white" style="background-color: #C4B299;">
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+        .glass-panel {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.1) 100%);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(35, 61, 77, 0.08); /* Charcoal */
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
+        }
+        
+        .bg-grid {
+            background-size: 30px 30px;
+            background-image: linear-gradient(to right, rgba(35, 61, 77, 0.04) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(35, 61, 77, 0.04) 1px, transparent 1px);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to bottom right, #E9631A, #233d4d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="relative min-h-screen selection:bg-brand-gold selection:text-purewhite flex flex-col justify-center items-center py-10 px-4">
+
+    <!-- Background Pattern -->
+    <div class="fixed inset-0 pointer-events-none -z-10 bg-grid mask-image: radial-gradient(circle at center, black 40%, transparent 100%);"></div>
+    <div class="fixed top-20 left-1/2 -translate-x-1/2 w-[300px] h-[300px] bg-brand-gold/10 rounded-full blur-[80px] -z-10"></div>
+
+    <main class="w-full max-w-lg mx-auto relative z-10 w-full animate-[fade-in_1s_ease-out]">
+        
+        <!-- Profile Header -->
+        <div class="text-center mb-10">
+            <div class="relative w-32 h-32 md:w-36 md:h-36 mx-auto mb-6">
+                <div class="absolute inset-0 bg-brand-gold/30 blur-[20px] rounded-full translate-y-4"></div>
+                <img src="https://i.imgur.com/znueKhq.jpeg" class="w-full h-full object-cover rounded-full border border-white/10 shadow-lg relative z-10" alt="Luana Dias">
+            </div>
+            <h1 class="text-4xl md:text-5xl font-serif text-white tracking-tight leading-[1] mb-2">Luana Dias</h1>
+            <p class="text-[10px] md:text-xs uppercase tracking-[0.25em] font-bold text-brand-gold mb-4">Advocacia Intencional</p>
+            <p class="text-sm font-light text-white/50 max-w-xs mx-auto">Construindo justiça através de uma estratégia previdenciária de alta maestria.</p>
+        </div>
+
+        <!-- Links Section -->
+        <div class="space-y-4 mb-10 w-full">
+            
+            <!-- Primary High-Conversion Button (Points to /grupo) -->
+            <a href="/grupo" class="block w-full group relative inline-flex items-center justify-center overflow-hidden rounded-[1.5rem] p-[1px] focus:outline-none">
+                <span class="absolute inset-[-1000%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#EBEBDF_0%,#E9631A_50%,#EBEBDF_100%)]"></span>
+                <span class="inline-flex flex-col w-full cursor-pointer items-center justify-center gap-1 rounded-[1.5rem] bg-brand-gold p-8 backdrop-blur-3xl transition-all group-hover:bg-[#d05615]">
+                    <span class="text-[9px] uppercase tracking-widest font-bold text-purewhite/70">Acesso Exclusivo e Gratuito</span>
+                    <span class="text-xl md:text-2xl font-serif text-purewhite leading-tight font-medium my-1">Imersão Método Prev 5.0</span>
+                    <div class="flex items-center gap-2 mt-3">
+                        <span class="text-xs text-purewhite uppercase tracking-widest font-bold">Pegar meu passaporte</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 text-purewhite group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </span>
+            </a>
+
+            <!-- Secondary Booking Button -->
+            <a href="https://wa.me/556992915832" target="_blank" class="block w-full group glass-panel rounded-[1.5rem] p-7 text-center hover:border-brand-gold/40 transition-colors relative overflow-hidden">
+                <div class="absolute inset-0 w-full h-full bg-gradient-to-t from-brand-gold/[0.03] to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <span class="relative z-10 text-[9px] uppercase tracking-widest font-bold text-white/40 block mb-2">Seu caso é complexo?</span>
+                <span class="relative z-10 text-xl md:text-2xl font-serif text-white block mb-4">Gostaríamos de Cuidar do seu Mapeamento Previdenciário</span>
+                <div class="relative z-10 flex items-center justify-center gap-2">
+                    <span class="text-xs text-brand-gold uppercase tracking-widest font-bold group-hover:text-brand-goldglow transition-colors">Solicitar Atendimento Jurídico</span>
+                    <i data-lucide="scale" class="w-4 h-4 text-brand-gold transition-colors"></i>
+                </div>
+            </a>
+            
+        </div>
+
+        <!-- Social Icons -->
+        <div class="flex justify-center items-center gap-4 mb-10">
+            <a href="https://wa.me/556992915832" target="_blank" class="w-12 h-12 glass-panel rounded-full flex items-center justify-center text-white/60 hover:text-brand-gold hover:border-brand-gold/30 hover:scale-110 transition-all shadow-sm">
+                <i data-lucide="phone" class="w-5 h-5"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/luana-dias-02a582106" target="_blank" class="w-12 h-12 glass-panel rounded-full flex items-center justify-center text-white/60 hover:text-brand-gold hover:border-brand-gold/30 hover:scale-110 transition-all shadow-sm">
+                <i data-lucide="linkedin" class="w-5 h-5"></i>
+            </a>
+            <a href="mailto:diasadvocaciabr@gmail.com" class="w-12 h-12 glass-panel rounded-full flex items-center justify-center text-white/60 hover:text-brand-gold hover:border-brand-gold/30 hover:scale-110 transition-all shadow-sm">
+                <i data-lucide="mail" class="w-5 h-5"></i>
+            </a>
+            <a href="https://www.tiktok.com/@draluadias" target="_blank" class="w-12 h-12 glass-panel rounded-full flex items-center justify-center text-white/60 hover:text-brand-gold hover:border-brand-gold/30 hover:scale-110 transition-all shadow-sm">
+                <!-- TikTok icon is not standard in lucide right now, fallback to playing or generic video -->
+                <i data-lucide="video" class="w-5 h-5"></i>
+            </a>
+        </div>
+
+        <div class="text-center">
+            <span class="text-[9px] font-mono text-white/30 uppercase tracking-[0.2em]">OAB/RO nº 15293</span>
+        </div>
+
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
 </html>
