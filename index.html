@@ -75,16 +75,17 @@
     <!-- Background Pattern -->
     <div class="fixed inset-0 pointer-events-none -z-10 bg-grid mask-image: radial-gradient(circle at center, black 40%, transparent 100%);"></div>
 
-    <!-- Cinematic Hero Header (Reference Halison style, full width top half) -->
+    <!-- Cinematic Hero Header (Reference Halison style, sharp and crisp) -->
     <header class="relative w-full h-[65vh] flex items-end justify-start overflow-hidden">
-        <img src="https://i.imgur.com/znueKhq.jpeg" class="absolute inset-0 w-full h-full object-cover object-[center_20%]" alt="Luana Dias">
-        <!-- Fade from photo to light background below -->
-        <div class="absolute inset-0 bg-gradient-to-t from-[#EBEBDF] via-[#EBEBDF]/30 to-transparent"></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-[#EBEBDF]/60 via-[#EBEBDF]/10 to-transparent hidden md:block"></div>
+        <img src="https://i.imgur.com/znueKhq.jpeg" class="absolute inset-0 w-full h-full object-cover object-[center_top]" alt="Luana Dias">
         
-        <div class="relative z-10 w-full max-w-4xl mx-auto px-6 pb-12 md:pb-16 animate-[fade-in_1s_ease-out]">
-            <span class="text-[10px] md:text-sm font-bold tracking-[0.3em] uppercase text-brand-gold mb-2 block" style="text-shadow: 0 2px 10px rgba(255,255,255,0.8);">Advocacia Intencional</span>
-            <h1 class="text-[5.5rem] md:text-9xl font-serif text-[#233d4d] tracking-tighter leading-[0.8] uppercase" style="text-shadow: 0 4px 30px rgba(235, 235, 223, 0.7);">
+        <!-- Only fade the absolute bottom edge so the image remains sharp and natural -->
+        <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#EBEBDF] via-[#EBEBDF]/80 to-transparent"></div>
+        <div class="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-[#EBEBDF]/20 to-transparent hidden md:block"></div>
+        
+        <div class="relative z-10 w-full max-w-4xl mx-auto px-6 pb-12 animate-[fade-in_1s_ease-out]">
+            <span class="text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase text-brand-gold mb-1 block">Advocacia Intencional</span>
+            <h1 class="text-6xl md:text-8xl font-serif text-[#233d4d] tracking-normal leading-[0.85] uppercase">
                 Luana<br>Dias
             </h1>
         </div>
@@ -123,9 +124,9 @@
 
         <!-- Social Icons (Line Art Hollow Icons matching reference) -->
         <div class="flex justify-center items-center gap-5 mb-16">
-            <!-- Phone/WhatsApp -->
+            <!-- WhatsApp Logo Hollow -->
             <a href="https://wa.me/556992915832" target="_blank" class="w-[50px] h-[50px] glass-panel rounded-[1.2rem] flex items-center justify-center text-white/60 hover:text-brand-gold hover:border-brand-gold/30 hover:-translate-y-1 transition-all shadow-sm">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
             </a>
             <!-- Mail -->
             <a href="mailto:diasadvocaciabr@gmail.com" class="w-[50px] h-[50px] glass-panel rounded-[1.2rem] flex items-center justify-center text-white/60 hover:text-brand-gold hover:border-brand-gold/30 hover:-translate-y-1 transition-all shadow-sm">
